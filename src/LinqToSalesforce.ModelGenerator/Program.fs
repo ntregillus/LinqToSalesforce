@@ -1,14 +1,10 @@
 ﻿open Argu
 open System
+open System.Net.Http
 open System.IO
 open LinqToSalesforce
 open Rest
 open Rest.OAuth
-open System.Data.Entity.Design.PluralizationServices
-open System.Globalization
-
-let c = CultureInfo "en-us"
-let ps = PluralizationService.CreateService c
 
 type Arguments =
     | [<Mandatory>] Login of string
@@ -53,7 +49,8 @@ let main argv =
           Username=login
           Password=password }
       Config.ProductionInstance <- instaceName
-      let oauth = authenticateWithCredentials authparams |> Async.RunSynchronously
+      let client = new HttpClient()
+      let oauth = authenticateWithCredentials client authparams |> Async.RunSynchronously
       let tables = getObjectsList oauth |> Async.RunSynchronously
       let cs = CodeGeneration.generateCsharp tables ns
       if String.IsNullOrWhiteSpace outputFile
