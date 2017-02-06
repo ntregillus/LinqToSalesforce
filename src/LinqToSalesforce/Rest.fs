@@ -20,7 +20,7 @@ type Result<'ts,'te> =
   | Failure of 'te
 
 module Rest =
-
+  //let client = new HttpClient()
   type HttpMethod with
     static member Patch = new HttpMethod("PATCH")
 
@@ -76,10 +76,9 @@ module Rest =
       } |> Seq.toArray
     String.Join("&", kvs)
 
-  let send uri contentType me (f: (Headers.HttpRequestHeaders -> unit) option) (text:string) =
-    ServicePointManager.SecurityProtocol <- SecurityProtocolType.Tls12 ||| SecurityProtocolType.Tls11
+  let send (client:HttpClient) uri contentType me (f: (Headers.HttpRequestHeaders -> unit) option) (text:string) =
+    //ServicePointManager.SecurityProtocol <- SecurityProtocolType.Tls12 ||| SecurityProtocolType.Tls11
     async {
-      use client = new HttpClient()
       use m = new HttpRequestMessage()
       m.Method <- me
       m.RequestUri <- uri
@@ -94,8 +93,8 @@ module Rest =
       return! client.SendAsync m |> Async.AwaitTask
     }
 
-  let sendRawForm uri (text:string) =
-    send uri "application/x-www-form-urlencoded" HttpMethod.Post None text
+  let sendRawForm client uri (text:string) =
+    send client uri "application/x-www-form-urlencoded" HttpMethod.Post None text
 
   module OAuth =
     open System.IO
@@ -139,10 +138,10 @@ module Rest =
       member __.IsExired() =
         DateTime.UtcNow >= __.ExpirationDate()
     
-    let authenticateWithCredentials (p:ImpersonationParam) =
+    let authenticateWithCredentials client (p:ImpersonationParam) =
       let uri = Config.BuildUri "https://%s.salesforce.com/services/oauth2/token"
       async {
-        let! rs = p.ToKeyValues() |> toEncodedParams |> sendRawForm uri
+        let! rs = p.ToKeyValues() |> toEncodedParams |> sendRawForm client uri
         let! json = rs.Content.ReadAsStringAsync() |> Async.AwaitTask
         return fromJson<Identity> json
       }
@@ -162,12 +161,12 @@ module Rest =
       return! client.SendAsync m |> Async.AwaitTask
     }
 
-  let execRest<'r,'q> (i:Identity) uri m (rq:'q) : 'r Async =
+  let execRest<'r,'q> (i:Identity) client uri m (rq:'q) : 'r Async =
     async {
         let f = 
           fun (h:Headers.HttpRequestHeaders) -> 
             h.Add("Authorization", sprintf "Bearer %s" i.AccessToken)
-        let! rs = rq |> toJson |> send uri "application/json" m (Some f)
+        let! rs = rq |> toJson |> send client uri "application/json" m (Some f)
         let! json = rs.Content.ReadAsStringAsync() |> Async.AwaitTask
         return fromJson<'r> json
       }
@@ -295,46 +294,46 @@ module Rest =
       return! readRestResponse<'t SoqlResult> rs
     }
     
-  let insert (i:Identity) (entity:#ISalesforceEntity) =
+  let insert client (i:Identity) (entity:#ISalesforceEntity) =
     let name = entity.GetType() |> findEntityName
     let uri = (Config.BuildUri "https://%s.salesforce.com/services/data/v20.0/sobjects/").ToString() + name + "/"
     async {
       let f = 
           fun (h:Headers.HttpRequestHeaders) -> 
             h.Add("Authorization", sprintf "Bearer %s" i.AccessToken)
-      let! rs = entity |> toInsertJson |> send (Uri uri) "application/json" HttpMethod.Post (Some f)
+      let! rs = entity |> toInsertJson |> send client (Uri uri) "application/json" HttpMethod.Post (Some f)
       return! readRestResponse<InsertResult> rs
     }
 
-  let update (i:Identity) (id:string) (entity:#ISalesforceEntity) =
+  let update client (i:Identity) (id:string) (entity:#ISalesforceEntity) =
     let name = entity.GetType() |> findEntityName
     let uri = (Config.BuildUri "https://%s.salesforce.com/services/data/v20.0/sobjects/").ToString() + name + "/" + id + "/"
     async {
       let f = 
           fun (h:Headers.HttpRequestHeaders) -> 
             h.Add("Authorization", sprintf "Bearer %s" i.AccessToken)
-      let! rs = entity |> toInsertJson |> send (Uri uri) "application/json" HttpMethod.Patch (Some f)
+      let! rs = entity |> toInsertJson |> send client (Uri uri) "application/json" HttpMethod.Patch (Some f)
       let! json = rs.Content.ReadAsStringAsync() |> Async.AwaitTask
       if String.IsNullOrWhiteSpace json
       then return true
       else return false
     }
 
-  let delete (i:Identity) (id:string) (entity:#ISalesforceEntity) =
+  let delete client (i:Identity) (id:string) (entity:#ISalesforceEntity) =
     let name = entity.GetType() |> findEntityName
     let uri = (Config.BuildUri "https://%s.salesforce.com/services/data/v20.0/sobjects/").ToString() + name + "/" + id + "/"
     async {
       let f = 
           fun (h:Headers.HttpRequestHeaders) -> 
             h.Add("Authorization", sprintf "Bearer %s" i.AccessToken)
-      do! entity |> toInsertJson |> send (Uri uri) "application/json" HttpMethod.Delete (Some f) |> Async.Ignore
+      do! entity |> toInsertJson |> send client (Uri uri) "application/json" HttpMethod.Delete (Some f) |> Async.Ignore
     }
 
-  type Client (instanceName:string, authparams:ImpersonationParam) =
+  type Client (client, instanceName:string, authparams:ImpersonationParam) =
     let oauth:Identity option ref = ref None
     do Config.ProductionInstance <- instanceName
     let authenticate() =
-      oauth := authenticateWithCredentials authparams |> Async.RunSynchronously |> Some
+      oauth := authenticateWithCredentials client authparams |> Async.RunSynchronously |> Some
     let checkSession() =
       match !oauth with
       | None -> authenticate()
@@ -349,10 +348,10 @@ module Rest =
       executeSoql<'t> (getIdentity()) soql
     member __.Insert<'t when 't :> ISalesforceEntity> (entity:'t) =
       checkSession()
-      insert (getIdentity()) entity |> Async.RunSynchronously
+      insert client (getIdentity()) entity |> Async.RunSynchronously
     member __.Update<'t when 't :> ISalesforceEntity> (entity:'t) =
       checkSession()
-      update (getIdentity()) entity.Id entity |> Async.RunSynchronously
+      update client (getIdentity()) entity.Id entity |> Async.RunSynchronously
     member __.Delete<'t when 't :> ISalesforceEntity> (entity:'t) =
       checkSession()
-      delete (getIdentity()) entity.Id entity |> Async.RunSynchronously
+      delete client (getIdentity()) entity.Id entity |> Async.RunSynchronously

@@ -10,6 +10,7 @@ open System.Linq
 open Entities
 open Translator
 open Visitor
+open System.Net.Http
 
 module private ContextHelper =
   let execute<'t when 't :> ISalesforceEntity>(client:Client) (tracker:Tracker) operations tableName =
@@ -86,8 +87,12 @@ type SoqlQueryContext<'t when 't :> ISalesforceEntity>(client:Client, tracker:Tr
         RelationShip<'t,_>.Build typ client tracker r
       results :> obj
 
-type SoqlContext (instanceName:string, authparams:ImpersonationParam) =
-  let client = Client(instanceName, authparams)
+type SoqlContext (instanceName:string, authparams:ImpersonationParam, ?httpClient:HttpClient) =
+  let client = 
+    match httpClient with
+    | Some c -> Client(c, instanceName, authparams)
+    | None -> Client(new HttpClient(), instanceName, authparams)
+
   let tracker = new Tracker()
   
   member x.GetTable<'t when 't :> ISalesforceEntity>() =

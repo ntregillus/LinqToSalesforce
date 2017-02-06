@@ -15,11 +15,10 @@ open Newtonsoft.Json.Serialization
 open Newtonsoft.Json.Converters
 open Newtonsoft.Json.Linq
 open LinqToSalesforce.Rest
-open System.Data.Entity.Design.PluralizationServices
 open System.Globalization
+open Pluralization
 
 let c = CultureInfo "en-us"
-let ps = PluralizationService.CreateService c
 
 let ucFirst (s:string) =
   match s.ToCharArray() |> Seq.toList with
@@ -257,7 +256,7 @@ let generateCsharp (tables:TableDesc list) (``namespace``:string) =
   
   for table in tables do
     let typename = table.Name |> fixName
-    let name = ps.Pluralize typename
+    let name = pluralize typename
     let line = sprintf "public IQueryable<%s> %s => GetTable<%s>();" typename name typename
     addLine 2 line
 
