@@ -60,6 +60,7 @@
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
     <Compile Include="AssemblyInfo.fs" />
+    <Compile Include="Pluralization.fs" />
     <Compile Include="Visitor.fs" />
     <Compile Include="Translator.fs" />
     <Compile Include="Queryable.fs" />
@@ -70,7 +71,6 @@
     <None Include="paket.references" />
     <None Include="paket.template" />
     <Content Include="App.config" />
-    <Compile Include="Pluralization.fs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="FSharp.Core, Version=4.4.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">

@@ -16,7 +16,7 @@ open Newtonsoft.Json.Converters
 open Newtonsoft.Json.Linq
 open LinqToSalesforce.Rest
 open System.Globalization
-open Pluralization
+open LinqToSalesforce.Pluralization
 
 let c = CultureInfo "en-us"
 
