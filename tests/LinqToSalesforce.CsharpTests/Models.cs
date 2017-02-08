@@ -36996,7 +36996,8 @@ namespace LinqToSalesforce
     }
     public class SalesforceDataContext : SoqlContext
     {
-        public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams) : base(instanceName, authparams) { }
+        public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams, System.Net.Http.HttpClient client) : 
+            base(instanceName, authparams, client) { }
         public IQueryable<Account> Accounts => GetTable<Account>();
         public IQueryable<AccountContactRole> AccountContactRoles => GetTable<AccountContactRole>();
         public IQueryable<AccountFeed> AccountFeeds => GetTable<AccountFeed>();

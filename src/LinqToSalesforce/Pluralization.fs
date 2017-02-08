@@ -36,14 +36,6 @@ module Pluralization =
     | EndsWith "ix" t -> t + "ise"
     | EndsWith "ies" t -> t + "ies"
     | EndsWith "um" t -> t + "a"
+    | EndsWith "us" t -> t + "uses"
     | _ -> text + "s"
-
-   //pluralize "kiss"
-   //pluralize "shoe"
-   //pluralize "life"
-   //pluralize "account"
-   //pluralize "boy"Ò
-   //pluralize "foot"
-   //pluralize "death"
-
 

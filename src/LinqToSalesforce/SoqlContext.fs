@@ -87,12 +87,8 @@ type SoqlQueryContext<'t when 't :> ISalesforceEntity>(client:Client, tracker:Tr
         RelationShip<'t,_>.Build typ client tracker r
       results :> obj
 
-type SoqlContext (instanceName:string, authparams:ImpersonationParam, ?httpClient:HttpClient) =
-  let client = 
-    match httpClient with
-    | Some c -> Client(c, instanceName, authparams)
-    | None -> Client(new HttpClient(), instanceName, authparams)
-
+type SoqlContext (instanceName:string, authparams:ImpersonationParam, httpClient:HttpClient) =
+  let client = Client(httpClient, instanceName, authparams)
   let tracker = new Tracker()
   
   member x.GetTable<'t when 't :> ISalesforceEntity>() =
