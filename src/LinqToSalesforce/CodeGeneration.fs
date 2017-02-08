@@ -248,7 +248,8 @@ let generateCsharp (tables:TableDesc list) (``namespace``:string) =
   
   addLine 1 "public class SalesforceDataContext : SoqlContext"
   addLine 1 "{"
-  addLine 2 "public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams) : base(instanceName, authparams) { }"
+  addLine 2 "public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams) : base(instanceName, authparams, new System.Net.Http.HttpClient()) { }"
+  addLine 2 "public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams, System.Net.Http.HttpClient httpClient) : base(instanceName, authparams, httpClient) { }"
   
   for table in tables do
     let typename = table.Name |> fixName

@@ -572,7 +572,11 @@ namespace LinqToSalesforce
     public class PickAccountHistoryField
     {
         public static readonly string  accountMerged = "accountMerged"; 
+        public static readonly string  Name = "Name"; 
+        public static readonly string  TextName = "TextName"; 
         public static readonly string  AccountNumber = "AccountNumber"; 
+        public static readonly string  Owner = "Owner"; 
+        public static readonly string  Site = "Site"; 
         public static readonly string  AccountSource = "AccountSource"; 
         public static readonly string  Activec = "Active__c"; 
         public static readonly string  AnnualRevenue = "AnnualRevenue"; 
@@ -582,29 +586,27 @@ namespace LinqToSalesforce
         public static readonly string  BillingGeocodeAccuracy = "BillingGeocodeAccuracy"; 
         public static readonly string  BillingLatitude = "BillingLatitude"; 
         public static readonly string  BillingLongitude = "BillingLongitude"; 
-        public static readonly string  BillingPostalCode = "BillingPostalCode"; 
         public static readonly string  BillingState = "BillingState"; 
         public static readonly string  BillingStreet = "BillingStreet"; 
+        public static readonly string  BillingPostalCode = "BillingPostalCode"; 
         public static readonly string  CleanStatus = "CleanStatus"; 
         public static readonly string  created = "created"; 
         public static readonly string  accountCreatedFromLead = "accountCreatedFromLead"; 
         public static readonly string  CustomerPriorityc = "CustomerPriority__c"; 
         public static readonly string  DandbCompany = "DandbCompany"; 
+        public static readonly string  Jigsaw = "Jigsaw"; 
         public static readonly string  Description = "Description"; 
         public static readonly string  DunsNumber = "DunsNumber"; 
+        public static readonly string  NumberOfEmployees = "NumberOfEmployees"; 
         public static readonly string  Fax = "Fax"; 
         public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  Industry = "Industry"; 
-        public static readonly string  Jigsaw = "Jigsaw"; 
         public static readonly string  accountUpdatedByLead = "accountUpdatedByLead"; 
         public static readonly string  personAccountUpdatedByLead = "personAccountUpdatedByLead"; 
         public static readonly string  NaicsCode = "NaicsCode"; 
         public static readonly string  NaicsDesc = "NaicsDesc"; 
-        public static readonly string  Name = "Name"; 
         public static readonly string  NumberBugc = "NumberBug__c"; 
-        public static readonly string  NumberOfEmployees = "NumberOfEmployees"; 
         public static readonly string  NumberofLocationsc = "NumberofLocations__c"; 
-        public static readonly string  Owner = "Owner"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  Ownership = "Ownership"; 
@@ -619,16 +621,14 @@ namespace LinqToSalesforce
         public static readonly string  ShippingGeocodeAccuracy = "ShippingGeocodeAccuracy"; 
         public static readonly string  ShippingLatitude = "ShippingLatitude"; 
         public static readonly string  ShippingLongitude = "ShippingLongitude"; 
-        public static readonly string  ShippingPostalCode = "ShippingPostalCode"; 
         public static readonly string  ShippingState = "ShippingState"; 
         public static readonly string  ShippingStreet = "ShippingStreet"; 
+        public static readonly string  ShippingPostalCode = "ShippingPostalCode"; 
         public static readonly string  Sic = "Sic"; 
         public static readonly string  SicDesc = "SicDesc"; 
-        public static readonly string  Site = "Site"; 
         public static readonly string  SLAc = "SLA__c"; 
         public static readonly string  SLAExpirationDatec = "SLAExpirationDate__c"; 
         public static readonly string  SLASerialNumberc = "SLASerialNumber__c"; 
-        public static readonly string  TextName = "TextName"; 
         public static readonly string  TickerSymbol = "TickerSymbol"; 
         public static readonly string  Tradestyle = "Tradestyle"; 
         public static readonly string  Type = "Type"; 
@@ -1368,7 +1368,7 @@ namespace LinqToSalesforce
     {
         public static readonly string  Account = "Account"; 
         public static readonly string  Asset = "Asset"; 
-        public static readonly string  AssistantInteraction = "AssistantInteraction"; 
+        public static readonly string  AssetTokenEvent = "AssetTokenEvent"; 
         public static readonly string  Attachment = "Attachment"; 
         public static readonly string  Campaign = "Campaign"; 
         public static readonly string  CampaignMember = "CampaignMember"; 
@@ -1641,14 +1641,14 @@ namespace LinqToSalesforce
     public class PickAssetHistoryField
     {
         public static readonly string  Account = "Account"; 
+        public static readonly string  Name = "Name"; 
+        public static readonly string  Owner = "Owner"; 
+        public static readonly string  IsCompetitorProduct = "IsCompetitorProduct"; 
         public static readonly string  Contact = "Contact"; 
         public static readonly string  created = "created"; 
         public static readonly string  Description = "Description"; 
         public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  InstallDate = "InstallDate"; 
-        public static readonly string  IsCompetitorProduct = "IsCompetitorProduct"; 
-        public static readonly string  Name = "Name"; 
-        public static readonly string  Owner = "Owner"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  Parent = "Parent"; 
@@ -2874,16 +2874,17 @@ namespace LinqToSalesforce
         public static readonly string  Account = "Account"; 
         public static readonly string  Asset = "Asset"; 
         public static readonly string  BusinessHours = "BusinessHours"; 
+        public static readonly string  Origin = "Origin"; 
+        public static readonly string  Owner = "Owner"; 
+        public static readonly string  Reason = "Reason"; 
         public static readonly string  closed = "closed"; 
+        public static readonly string  IsClosedOnCreate = "IsClosedOnCreate"; 
         public static readonly string  Contact = "Contact"; 
         public static readonly string  created = "created"; 
         public static readonly string  Description = "Description"; 
         public static readonly string  EngineeringReqNumberc = "EngineeringReqNumber__c"; 
-        public static readonly string  feedEvent = "feedEvent"; 
-        public static readonly string  IsClosedOnCreate = "IsClosedOnCreate"; 
         public static readonly string  IsEscalated = "IsEscalated"; 
-        public static readonly string  Origin = "Origin"; 
-        public static readonly string  Owner = "Owner"; 
+        public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  ownerEscalated = "ownerEscalated"; 
@@ -2891,7 +2892,6 @@ namespace LinqToSalesforce
         public static readonly string  PotentialLiabilityc = "PotentialLiability__c"; 
         public static readonly string  Priority = "Priority"; 
         public static readonly string  Productc = "Product__c"; 
-        public static readonly string  Reason = "Reason"; 
         public static readonly string  locked = "locked"; 
         public static readonly string  unlocked = "unlocked"; 
         public static readonly string  SLAViolationc = "SLAViolation__c"; 
@@ -3575,21 +3575,22 @@ namespace LinqToSalesforce
         public static readonly string  Birthdate = "Birthdate"; 
         public static readonly string  CleanStatus = "CleanStatus"; 
         public static readonly string  contactMerged = "contactMerged"; 
+        public static readonly string  Owner = "Owner"; 
         public static readonly string  created = "created"; 
         public static readonly string  contactCreatedFromLead = "contactCreatedFromLead"; 
+        public static readonly string  Jigsaw = "Jigsaw"; 
         public static readonly string  Department = "Department"; 
         public static readonly string  Description = "Description"; 
         public static readonly string  DoNotCall = "DoNotCall"; 
         public static readonly string  Email = "Email"; 
         public static readonly string  EmailBouncedDate = "EmailBouncedDate"; 
         public static readonly string  EmailBouncedReason = "EmailBouncedReason"; 
+        public static readonly string  HasOptedOutOfEmail = "HasOptedOutOfEmail"; 
         public static readonly string  Fax = "Fax"; 
+        public static readonly string  HasOptedOutOfFax = "HasOptedOutOfFax"; 
         public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  FirstName = "FirstName"; 
-        public static readonly string  HasOptedOutOfEmail = "HasOptedOutOfEmail"; 
-        public static readonly string  HasOptedOutOfFax = "HasOptedOutOfFax"; 
         public static readonly string  HomePhone = "HomePhone"; 
-        public static readonly string  Jigsaw = "Jigsaw"; 
         public static readonly string  Languagesc = "Languages__c"; 
         public static readonly string  LastName = "LastName"; 
         public static readonly string  contactUpdatedByLead = "contactUpdatedByLead"; 
@@ -3601,9 +3602,9 @@ namespace LinqToSalesforce
         public static readonly string  MailingGeocodeAccuracy = "MailingGeocodeAccuracy"; 
         public static readonly string  MailingLatitude = "MailingLatitude"; 
         public static readonly string  MailingLongitude = "MailingLongitude"; 
-        public static readonly string  MailingPostalCode = "MailingPostalCode"; 
         public static readonly string  MailingState = "MailingState"; 
         public static readonly string  MailingStreet = "MailingStreet"; 
+        public static readonly string  MailingPostalCode = "MailingPostalCode"; 
         public static readonly string  MobilePhone = "MobilePhone"; 
         public static readonly string  Name = "Name"; 
         public static readonly string  OtherAddress = "OtherAddress"; 
@@ -3613,10 +3614,9 @@ namespace LinqToSalesforce
         public static readonly string  OtherLatitude = "OtherLatitude"; 
         public static readonly string  OtherLongitude = "OtherLongitude"; 
         public static readonly string  OtherPhone = "OtherPhone"; 
-        public static readonly string  OtherPostalCode = "OtherPostalCode"; 
         public static readonly string  OtherState = "OtherState"; 
         public static readonly string  OtherStreet = "OtherStreet"; 
-        public static readonly string  Owner = "Owner"; 
+        public static readonly string  OtherPostalCode = "OtherPostalCode"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  Phone = "Phone"; 
@@ -4057,15 +4057,15 @@ namespace LinqToSalesforce
         public static readonly string  ExternalDocumentInfo1 = "ExternalDocumentInfo1"; 
         public static readonly string  ExternalDocumentInfo2 = "ExternalDocumentInfo2"; 
         public static readonly string  feedEvent = "feedEvent"; 
-        public static readonly string  IsMajorVersion = "IsMajorVersion"; 
         public static readonly string  Language = "Language"; 
+        public static readonly string  IsMajorVersion = "IsMajorVersion"; 
         public static readonly string  Owner = "Owner"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
+        public static readonly string  SharingOption = "SharingOption"; 
         public static readonly string  ReasonForChange = "ReasonForChange"; 
         public static readonly string  locked = "locked"; 
         public static readonly string  unlocked = "unlocked"; 
-        public static readonly string  SharingOption = "SharingOption"; 
         public static readonly string  Title = "Title"; 
         public static readonly string  contentVersionCommented = "contentVersionCommented"; 
         public static readonly string  contentVersionCreated = "contentVersionCreated"; 
@@ -4447,16 +4447,20 @@ namespace LinqToSalesforce
         public static readonly string  BillingGeocodeAccuracy = "BillingGeocodeAccuracy"; 
         public static readonly string  BillingLatitude = "BillingLatitude"; 
         public static readonly string  BillingLongitude = "BillingLongitude"; 
-        public static readonly string  BillingPostalCode = "BillingPostalCode"; 
         public static readonly string  BillingState = "BillingState"; 
         public static readonly string  BillingStreet = "BillingStreet"; 
+        public static readonly string  BillingPostalCode = "BillingPostalCode"; 
         public static readonly string  CompanySigned = "CompanySigned"; 
         public static readonly string  CompanySignedDate = "CompanySignedDate"; 
         public static readonly string  contractActivation = "contractActivation"; 
         public static readonly string  contractApproval = "contractApproval"; 
         public static readonly string  contractConversion = "contractConversion"; 
         public static readonly string  contractDraft = "contractDraft"; 
+        public static readonly string  EndDate = "EndDate"; 
         public static readonly string  contractExpiration = "contractExpiration"; 
+        public static readonly string  Name = "Name"; 
+        public static readonly string  Owner = "Owner"; 
+        public static readonly string  StartDate = "StartDate"; 
         public static readonly string  ContractTerm = "ContractTerm"; 
         public static readonly string  contractTermination = "contractTermination"; 
         public static readonly string  created = "created"; 
@@ -4464,10 +4468,7 @@ namespace LinqToSalesforce
         public static readonly string  CustomerSignedDate = "CustomerSignedDate"; 
         public static readonly string  CustomerSignedTitle = "CustomerSignedTitle"; 
         public static readonly string  Description = "Description"; 
-        public static readonly string  EndDate = "EndDate"; 
         public static readonly string  feedEvent = "feedEvent"; 
-        public static readonly string  Name = "Name"; 
-        public static readonly string  Owner = "Owner"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  OwnerExpirationNotice = "OwnerExpirationNotice"; 
@@ -4480,11 +4481,10 @@ namespace LinqToSalesforce
         public static readonly string  ShippingGeocodeAccuracy = "ShippingGeocodeAccuracy"; 
         public static readonly string  ShippingLatitude = "ShippingLatitude"; 
         public static readonly string  ShippingLongitude = "ShippingLongitude"; 
-        public static readonly string  ShippingPostalCode = "ShippingPostalCode"; 
         public static readonly string  ShippingState = "ShippingState"; 
         public static readonly string  ShippingStreet = "ShippingStreet"; 
+        public static readonly string  ShippingPostalCode = "ShippingPostalCode"; 
         public static readonly string  SpecialTerms = "SpecialTerms"; 
-        public static readonly string  StartDate = "StartDate"; 
         public static readonly string  Status = "Status"; 
     
         public string Value { get; set; }
@@ -6579,7 +6579,6 @@ namespace LinqToSalesforce
         public static readonly string  Role = "Role"; 
         public static readonly string  RoleAndSubordinates = "RoleAndSubordinates"; 
         public static readonly string  RoleAndSubordinatesInternal = "RoleAndSubordinatesInternal"; 
-        public static readonly string  SharingRuleGroup = "SharingRuleGroup"; 
         public static readonly string  Territory = "Territory"; 
         public static readonly string  TerritoryAndSubordinates = "TerritoryAndSubordinates"; 
     
@@ -7271,35 +7270,34 @@ namespace LinqToSalesforce
         public static readonly string  created = "created"; 
         public static readonly string  CurrentGeneratorsc = "CurrentGenerators__c"; 
         public static readonly string  DandbCompany = "DandbCompany"; 
+        public static readonly string  Jigsaw = "Jigsaw"; 
         public static readonly string  Description = "Description"; 
         public static readonly string  DoNotCall = "DoNotCall"; 
         public static readonly string  Email = "Email"; 
         public static readonly string  EmailBouncedDate = "EmailBouncedDate"; 
         public static readonly string  EmailBouncedReason = "EmailBouncedReason"; 
+        public static readonly string  HasOptedOutOfEmail = "HasOptedOutOfEmail"; 
         public static readonly string  Fax = "Fax"; 
+        public static readonly string  HasOptedOutOfFax = "HasOptedOutOfFax"; 
         public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  FirstName = "FirstName"; 
         public static readonly string  GeocodeAccuracy = "GeocodeAccuracy"; 
-        public static readonly string  HasOptedOutOfEmail = "HasOptedOutOfEmail"; 
-        public static readonly string  HasOptedOutOfFax = "HasOptedOutOfFax"; 
         public static readonly string  Industry = "Industry"; 
-        public static readonly string  IsUnreadByOwner = "IsUnreadByOwner"; 
-        public static readonly string  Jigsaw = "Jigsaw"; 
         public static readonly string  LastName = "LastName"; 
         public static readonly string  Latitude = "Latitude"; 
         public static readonly string  leadConverted = "leadConverted"; 
         public static readonly string  leadMerged = "leadMerged"; 
+        public static readonly string  Owner = "Owner"; 
         public static readonly string  LeadSource = "LeadSource"; 
+        public static readonly string  Status = "Status"; 
         public static readonly string  Longitude = "Longitude"; 
         public static readonly string  MobilePhone = "MobilePhone"; 
         public static readonly string  Name = "Name"; 
         public static readonly string  NumberOfEmployees = "NumberOfEmployees"; 
         public static readonly string  NumberofLocationsc = "NumberofLocations__c"; 
-        public static readonly string  Owner = "Owner"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  Phone = "Phone"; 
-        public static readonly string  PostalCode = "PostalCode"; 
         public static readonly string  Primaryc = "Primary__c"; 
         public static readonly string  ProductInterestc = "ProductInterest__c"; 
         public static readonly string  Rating = "Rating"; 
@@ -7308,10 +7306,11 @@ namespace LinqToSalesforce
         public static readonly string  Salutation = "Salutation"; 
         public static readonly string  SICCodec = "SICCode__c"; 
         public static readonly string  State = "State"; 
-        public static readonly string  Status = "Status"; 
         public static readonly string  Street = "Street"; 
         public static readonly string  Title = "Title"; 
+        public static readonly string  IsUnreadByOwner = "IsUnreadByOwner"; 
         public static readonly string  Website = "Website"; 
+        public static readonly string  PostalCode = "PostalCode"; 
     
         public string Value { get; set; }
 
@@ -8218,7 +8217,6 @@ namespace LinqToSalesforce
     {
         public static readonly string  Account = "Account"; 
         public static readonly string  Amount = "Amount"; 
-        public static readonly string  Campaign = "Campaign"; 
         public static readonly string  CloseDate = "CloseDate"; 
         public static readonly string  Contract = "Contract"; 
         public static readonly string  created = "created"; 
@@ -8228,20 +8226,21 @@ namespace LinqToSalesforce
         public static readonly string  Description = "Description"; 
         public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  ForecastCategoryName = "ForecastCategoryName"; 
-        public static readonly string  IsPrivate = "IsPrivate"; 
         public static readonly string  LeadSource = "LeadSource"; 
         public static readonly string  MainCompetitorsc = "MainCompetitors__c"; 
-        public static readonly string  Name = "Name"; 
         public static readonly string  NextStep = "NextStep"; 
-        public static readonly string  OrderNumberc = "OrderNumber__c"; 
+        public static readonly string  Name = "Name"; 
         public static readonly string  Owner = "Owner"; 
+        public static readonly string  OrderNumberc = "OrderNumber__c"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
+        public static readonly string  Campaign = "Campaign"; 
+        public static readonly string  IsPrivate = "IsPrivate"; 
         public static readonly string  Probability = "Probability"; 
+        public static readonly string  TotalOpportunityQuantity = "TotalOpportunityQuantity"; 
         public static readonly string  locked = "locked"; 
         public static readonly string  unlocked = "unlocked"; 
         public static readonly string  StageName = "StageName"; 
-        public static readonly string  TotalOpportunityQuantity = "TotalOpportunityQuantity"; 
         public static readonly string  TrackingNumberc = "TrackingNumber__c"; 
         public static readonly string  Type = "Type"; 
     
@@ -8795,9 +8794,9 @@ namespace LinqToSalesforce
         public static readonly string  BillingGeocodeAccuracy = "BillingGeocodeAccuracy"; 
         public static readonly string  BillingLatitude = "BillingLatitude"; 
         public static readonly string  BillingLongitude = "BillingLongitude"; 
-        public static readonly string  BillingPostalCode = "BillingPostalCode"; 
         public static readonly string  BillingState = "BillingState"; 
         public static readonly string  BillingStreet = "BillingStreet"; 
+        public static readonly string  BillingPostalCode = "BillingPostalCode"; 
         public static readonly string  BillToContact = "BillToContact"; 
         public static readonly string  CompanyAuthorizedBy = "CompanyAuthorizedBy"; 
         public static readonly string  CompanyAuthorizedDate = "CompanyAuthorizedDate"; 
@@ -8806,19 +8805,20 @@ namespace LinqToSalesforce
         public static readonly string  CustomerAuthorizedBy = "CustomerAuthorizedBy"; 
         public static readonly string  CustomerAuthorizedDate = "CustomerAuthorizedDate"; 
         public static readonly string  Description = "Description"; 
-        public static readonly string  EffectiveDate = "EffectiveDate"; 
-        public static readonly string  EndDate = "EndDate"; 
         public static readonly string  feedEvent = "feedEvent"; 
-        public static readonly string  Name = "Name"; 
         public static readonly string  Opportunity = "Opportunity"; 
         public static readonly string  orderActivated = "orderActivated"; 
         public static readonly string  orderApproved = "orderApproved"; 
         public static readonly string  orderCancelled = "orderCancelled"; 
         public static readonly string  orderDeactivated = "orderDeactivated"; 
+        public static readonly string  EndDate = "EndDate"; 
         public static readonly string  orderExpired = "orderExpired"; 
-        public static readonly string  OrderReferenceNumber = "OrderReferenceNumber"; 
-        public static readonly string  orderSubmitted = "orderSubmitted"; 
+        public static readonly string  Name = "Name"; 
         public static readonly string  Owner = "Owner"; 
+        public static readonly string  OrderReferenceNumber = "OrderReferenceNumber"; 
+        public static readonly string  EffectiveDate = "EffectiveDate"; 
+        public static readonly string  orderSubmitted = "orderSubmitted"; 
+        public static readonly string  Type = "Type"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
         public static readonly string  PoDate = "PoDate"; 
@@ -8832,13 +8832,12 @@ namespace LinqToSalesforce
         public static readonly string  ShippingGeocodeAccuracy = "ShippingGeocodeAccuracy"; 
         public static readonly string  ShippingLatitude = "ShippingLatitude"; 
         public static readonly string  ShippingLongitude = "ShippingLongitude"; 
-        public static readonly string  ShippingPostalCode = "ShippingPostalCode"; 
         public static readonly string  ShippingState = "ShippingState"; 
         public static readonly string  ShippingStreet = "ShippingStreet"; 
+        public static readonly string  ShippingPostalCode = "ShippingPostalCode"; 
         public static readonly string  ShipToContact = "ShipToContact"; 
         public static readonly string  Status = "Status"; 
         public static readonly string  StatusCode = "StatusCode"; 
-        public static readonly string  Type = "Type"; 
     
         public string Value { get; set; }
 
@@ -9822,15 +9821,15 @@ namespace LinqToSalesforce
     [TypeConverter(typeof(PickPricebook2HistoryFieldConverter))]
     public class PickPricebook2HistoryField
     {
+        public static readonly string  IsActive = "IsActive"; 
+        public static readonly string  IsArchived = "IsArchived"; 
         public static readonly string  created = "created"; 
         public static readonly string  Description = "Description"; 
         public static readonly string  feedEvent = "feedEvent"; 
-        public static readonly string  IsActive = "IsActive"; 
-        public static readonly string  IsArchived = "IsArchived"; 
         public static readonly string  IsStandard = "IsStandard"; 
-        public static readonly string  Name = "Name"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
+        public static readonly string  Name = "Name"; 
         public static readonly string  locked = "locked"; 
         public static readonly string  unlocked = "unlocked"; 
     
@@ -10503,6 +10502,8 @@ namespace LinqToSalesforce
         public static readonly string  Macro = "Macro"; 
         public static readonly string  MacroAction = "MacroAction"; 
         public static readonly string  MacroInstruction = "MacroInstruction"; 
+        public static readonly string  ManagedContentBlock = "ManagedContentBlock"; 
+        public static readonly string  ManagedContentBlockVersion = "ManagedContentBlockVersion"; 
         public static readonly string  Metric = "Metric"; 
         public static readonly string  MetricDataLink = "MetricDataLink"; 
         public static readonly string  Opportunity = "Opportunity"; 
@@ -10514,6 +10515,7 @@ namespace LinqToSalesforce
         public static readonly string  SearchPromotionRule = "SearchPromotionRule"; 
         public static readonly string  SetupAssistantAnswer = "SetupAssistantAnswer"; 
         public static readonly string  Solution = "Solution"; 
+        public static readonly string  SyncTransactionLog = "SyncTransactionLog"; 
         public static readonly string  Task = "Task"; 
         public static readonly string  TransactionSecurityAction = "TransactionSecurityAction"; 
         public static readonly string  TransactionSecurityActionEvent = "TransactionSecurityActionEvent"; 
@@ -10761,7 +10763,8 @@ namespace LinqToSalesforce
     public class PickSiteHistoryField
     {
         public static readonly string  siteActive = "siteActive"; 
-        public static readonly string  Admin = "Admin"; 
+        public static readonly string  IndexPage = "IndexPage"; 
+        public static readonly string  SiteAllowStandardPortalPages = "SiteAllowStandardPortalPages"; 
         public static readonly string  AnalyticsTrackingCode = "AnalyticsTrackingCode"; 
         public static readonly string  siteOverride401 = "siteOverride401"; 
         public static readonly string  siteOverrideChangePassword = "siteOverrideChangePassword"; 
@@ -10769,9 +10772,10 @@ namespace LinqToSalesforce
         public static readonly string  created = "created"; 
         public static readonly string  SiteDeleteDomain = "SiteDeleteDomain"; 
         public static readonly string  siteNewDomain = "siteNewDomain"; 
+        public static readonly string  TopLevelDomain = "TopLevelDomain"; 
         public static readonly string  DefaultDomain = "DefaultDomain"; 
         public static readonly string  siteSetPrimaryDomain = "siteSetPrimaryDomain"; 
-        public static readonly string  Description = "Description"; 
+        public static readonly string  UrlPathPrefix = "UrlPathPrefix"; 
         public static readonly string  siteBTDisabled = "siteBTDisabled"; 
         public static readonly string  siteEnableFeeds = "siteEnableFeeds"; 
         public static readonly string  siteAllowStandardAnswersPages = "siteAllowStandardAnswersPages"; 
@@ -10779,21 +10783,15 @@ namespace LinqToSalesforce
         public static readonly string  siteAllowStandardIdeasPages = "siteAllowStandardIdeasPages"; 
         public static readonly string  siteAllowStandardSearch = "siteAllowStandardSearch"; 
         public static readonly string  siteAllowStandardLookups = "siteAllowStandardLookups"; 
-        public static readonly string  FavoriteIcon = "FavoriteIcon"; 
         public static readonly string  feedEvent = "feedEvent"; 
         public static readonly string  siteOverrideForgotPassword = "siteOverrideForgotPassword"; 
         public static readonly string  siteOverride500 = "siteOverride500"; 
         public static readonly string  GuestUser = "GuestUser"; 
-        public static readonly string  Guid = "Guid"; 
         public static readonly string  siteOverrideInactive = "siteOverrideInactive"; 
-        public static readonly string  IndexPage = "IndexPage"; 
-        public static readonly string  Language = "Language"; 
         public static readonly string  siteOverride509 = "siteOverride509"; 
         public static readonly string  siteOverride503 = "siteOverride503"; 
-        public static readonly string  MasterLabel = "MasterLabel"; 
         public static readonly string  sitePageLimitExceeded = "sitePageLimitExceeded"; 
         public static readonly string  siteOverrideMyProfile = "siteOverrideMyProfile"; 
-        public static readonly string  Name = "Name"; 
         public static readonly string  NewPassTemplate = "NewPassTemplate"; 
         public static readonly string  NewUserTemplate = "NewUserTemplate"; 
         public static readonly string  Options = "Options"; 
@@ -10810,13 +10808,18 @@ namespace LinqToSalesforce
         public static readonly string  siteRequireHttps = "siteRequireHttps"; 
         public static readonly string  siteOverrideSelfReg = "siteOverrideSelfReg"; 
         public static readonly string  ServerIsDown = "ServerIsDown"; 
+        public static readonly string  Admin = "Admin"; 
+        public static readonly string  Description = "Description"; 
+        public static readonly string  FavoriteIcon = "FavoriteIcon"; 
+        public static readonly string  MasterLabel = "MasterLabel"; 
+        public static readonly string  Language = "Language"; 
+        public static readonly string  Name = "Name"; 
         public static readonly string  siteOverrideRobotsTxt = "siteOverrideRobotsTxt"; 
-        public static readonly string  siteOverrideTemplate = "siteOverrideTemplate"; 
-        public static readonly string  SiteType = "SiteType"; 
         public static readonly string  Status = "Status"; 
         public static readonly string  Subdomain = "Subdomain"; 
-        public static readonly string  TopLevelDomain = "TopLevelDomain"; 
-        public static readonly string  UrlPathPrefix = "UrlPathPrefix"; 
+        public static readonly string  siteOverrideTemplate = "siteOverrideTemplate"; 
+        public static readonly string  SiteType = "SiteType"; 
+        public static readonly string  Guid = "Guid"; 
         public static readonly string  UrlRewriterClass = "UrlRewriterClass"; 
     
         public string Value { get; set; }
@@ -10984,15 +10987,15 @@ namespace LinqToSalesforce
     {
         public static readonly string  created = "created"; 
         public static readonly string  feedEvent = "feedEvent"; 
-        public static readonly string  IsPublished = "IsPublished"; 
-        public static readonly string  IsPublishedInPublicKb = "IsPublishedInPublicKb"; 
         public static readonly string  ownerAccepted = "ownerAccepted"; 
         public static readonly string  ownerAssignment = "ownerAssignment"; 
+        public static readonly string  IsPublished = "IsPublished"; 
         public static readonly string  locked = "locked"; 
         public static readonly string  unlocked = "unlocked"; 
-        public static readonly string  SolutionName = "SolutionName"; 
         public static readonly string  SolutionNote = "SolutionNote"; 
+        public static readonly string  SolutionName = "SolutionName"; 
         public static readonly string  Status = "Status"; 
+        public static readonly string  IsPublishedInPublicKb = "IsPublishedInPublicKb"; 
     
         public string Value { get; set; }
 
@@ -12157,6 +12160,7 @@ namespace LinqToSalesforce
         public static readonly string _99 = "99"; 
         public static readonly string _100 = "100"; 
         public static readonly string _101 = "101"; 
+        public static readonly string _102 = "102"; 
     
         public string Value { get; set; }
 
@@ -16838,6 +16842,12 @@ namespace LinqToSalesforce
         }
         [JsonIgnore]
         [ReferencedByField("CampaignId")]
+        public RelationShip<Campaign,CampaignMemberStatus> CampaignMemberStatuses
+        {
+            get;set;
+        }
+        [JsonIgnore]
+        [ReferencedByField("CampaignId")]
         public RelationShip<Campaign,CampaignShare> Shares
         {
             get;set;
@@ -17203,9 +17213,9 @@ namespace LinqToSalesforce
             get { return __Label; }
             set { SetField(ref __Label, value, "Label"); }
         }
-        private System.Int32 __SortOrder;
-        [EntityField(false)]
-        public System.Int32 SortOrder
+        private System.Int32? __SortOrder;
+        [EntityField(true)]
+        public System.Int32? SortOrder
         {
             get { return __SortOrder; }
             set { SetField(ref __SortOrder, value, "SortOrder"); }
@@ -36996,12 +37006,8 @@ namespace LinqToSalesforce
     }
     public class SalesforceDataContext : SoqlContext
     {
-        public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams, System.Net.Http.HttpClient httpClient)
-            : base(instanceName, authparams, httpClient) { }
-
-        public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams)
-            : base(instanceName, authparams, new System.Net.Http.HttpClient()) { }
-
+        public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams) : base(instanceName, authparams, new System.Net.Http.HttpClient()) { }
+        public SalesforceDataContext(string instanceName, Rest.OAuth.ImpersonationParam authparams, System.Net.Http.HttpClient httpClient) : base(instanceName, authparams, httpClient) { }
         public IQueryable<Account> Accounts => GetTable<Account>();
         public IQueryable<AccountContactRole> AccountContactRoles => GetTable<AccountContactRole>();
         public IQueryable<AccountFeed> AccountFeeds => GetTable<AccountFeed>();
@@ -37023,13 +37029,13 @@ namespace LinqToSalesforce
         public IQueryable<AsyncApexJob> AsyncApexJobs => GetTable<AsyncApexJob>();
         public IQueryable<Attachment> Attachments => GetTable<Attachment>();
         public IQueryable<BrandTemplate> BrandTemplates => GetTable<BrandTemplate>();
-        public IQueryable<BusinessHours> BusinessHours => GetTable<BusinessHours>();
+        public IQueryable<BusinessHours> BusinessHourss => GetTable<BusinessHours>();
         public IQueryable<BusinessProcess> BusinessProcesses => GetTable<BusinessProcess>();
         public IQueryable<CallCenter> CallCenters => GetTable<CallCenter>();
         public IQueryable<Campaign> Campaigns => GetTable<Campaign>();
         public IQueryable<CampaignFeed> CampaignFeeds => GetTable<CampaignFeed>();
         public IQueryable<CampaignMember> CampaignMembers => GetTable<CampaignMember>();
-        public IQueryable<CampaignMemberStatus> CampaignMemberStatus => GetTable<CampaignMemberStatus>();
+        public IQueryable<CampaignMemberStatus> CampaignMemberStatuses => GetTable<CampaignMemberStatus>();
         public IQueryable<CampaignShare> CampaignShares => GetTable<CampaignShare>();
         public IQueryable<Case> Cases => GetTable<Case>();
         public IQueryable<CaseComment> CaseComments => GetTable<CaseComment>();
@@ -37038,7 +37044,7 @@ namespace LinqToSalesforce
         public IQueryable<CaseHistory> CaseHistories => GetTable<CaseHistory>();
         public IQueryable<CaseShare> CaseShares => GetTable<CaseShare>();
         public IQueryable<CaseSolution> CaseSolutions => GetTable<CaseSolution>();
-        public IQueryable<CaseStatus> CaseStatus => GetTable<CaseStatus>();
+        public IQueryable<CaseStatus> CaseStatuses => GetTable<CaseStatus>();
         public IQueryable<CaseTeamMember> CaseTeamMembers => GetTable<CaseTeamMember>();
         public IQueryable<CaseTeamRole> CaseTeamRoles => GetTable<CaseTeamRole>();
         public IQueryable<CaseTeamTemplate> CaseTeamTemplates => GetTable<CaseTeamTemplate>();
@@ -37067,7 +37073,7 @@ namespace LinqToSalesforce
         public IQueryable<ContractContactRole> ContractContactRoles => GetTable<ContractContactRole>();
         public IQueryable<ContractFeed> ContractFeeds => GetTable<ContractFeed>();
         public IQueryable<ContractHistory> ContractHistories => GetTable<ContractHistory>();
-        public IQueryable<ContractStatus> ContractStatus => GetTable<ContractStatus>();
+        public IQueryable<ContractStatus> ContractStatuses => GetTable<ContractStatus>();
         public IQueryable<CronTrigger> CronTriggers => GetTable<CronTrigger>();
         public IQueryable<Dashboard> Dashboards => GetTable<Dashboard>();
         public IQueryable<DashboardFeed> DashboardFeeds => GetTable<DashboardFeed>();
@@ -37076,7 +37082,7 @@ namespace LinqToSalesforce
         public IQueryable<EmailMessage> EmailMessages => GetTable<EmailMessage>();
         public IQueryable<EmailServicesAddress> EmailServicesAddresses => GetTable<EmailServicesAddress>();
         public IQueryable<EmailServicesFunction> EmailServicesFunctions => GetTable<EmailServicesFunction>();
-        public IQueryable<EmailStatus> EmailStatus => GetTable<EmailStatus>();
+        public IQueryable<EmailStatus> EmailStatuses => GetTable<EmailStatus>();
         public IQueryable<EmailTemplate> EmailTemplates => GetTable<EmailTemplate>();
         public IQueryable<EntitySubscription> EntitySubscriptions => GetTable<EntitySubscription>();
         public IQueryable<Event> Events => GetTable<Event>();
@@ -37085,19 +37091,19 @@ namespace LinqToSalesforce
         public IQueryable<FeedComment> FeedComments => GetTable<FeedComment>();
         public IQueryable<FeedPost> FeedPosts => GetTable<FeedPost>();
         public IQueryable<FeedTrackedChange> FeedTrackedChanges => GetTable<FeedTrackedChange>();
-        public IQueryable<FiscalYearSettings> FiscalYearSettings => GetTable<FiscalYearSettings>();
+        public IQueryable<FiscalYearSettings> FiscalYearSettingss => GetTable<FiscalYearSettings>();
         public IQueryable<Folder> Folders => GetTable<Folder>();
         public IQueryable<ForecastShare> ForecastShares => GetTable<ForecastShare>();
         public IQueryable<Group> Groups => GetTable<Group>();
         public IQueryable<GroupMember> GroupMembers => GetTable<GroupMember>();
-        public IQueryable<Holiday> Holidays => GetTable<Holiday>();
+        public IQueryable<Holiday> Holidaies => GetTable<Holiday>();
         public IQueryable<Idea> Ideas => GetTable<Idea>();
         public IQueryable<IdeaComment> IdeaComments => GetTable<IdeaComment>();
         public IQueryable<Lead> Leads => GetTable<Lead>();
         public IQueryable<LeadFeed> LeadFeeds => GetTable<LeadFeed>();
         public IQueryable<LeadHistory> LeadHistories => GetTable<LeadHistory>();
         public IQueryable<LeadShare> LeadShares => GetTable<LeadShare>();
-        public IQueryable<LeadStatus> LeadStatus => GetTable<LeadStatus>();
+        public IQueryable<LeadStatus> LeadStatuses => GetTable<LeadStatus>();
         public IQueryable<LoginIp> LoginIps => GetTable<LoginIp>();
         public IQueryable<MailmergeTemplate> MailmergeTemplates => GetTable<MailmergeTemplate>();
         public IQueryable<Name> Names => GetTable<Name>();
@@ -37123,8 +37129,8 @@ namespace LinqToSalesforce
         public IQueryable<Partner> Partners => GetTable<Partner>();
         public IQueryable<PartnerRole> PartnerRoles => GetTable<PartnerRole>();
         public IQueryable<Period> Periods => GetTable<Period>();
-        public IQueryable<Pricebook2> Pricebook2 => GetTable<Pricebook2>();
-        public IQueryable<Pricebook2History> Pricebook2History => GetTable<Pricebook2History>();
+        public IQueryable<Pricebook2> Pricebook2s => GetTable<Pricebook2>();
+        public IQueryable<Pricebook2History> Pricebook2Histories => GetTable<Pricebook2History>();
         public IQueryable<PricebookEntry> PricebookEntries => GetTable<PricebookEntry>();
         public IQueryable<ProcessDefinition> ProcessDefinitions => GetTable<ProcessDefinition>();
         public IQueryable<ProcessInstance> ProcessInstances => GetTable<ProcessInstance>();
@@ -37132,8 +37138,8 @@ namespace LinqToSalesforce
         public IQueryable<ProcessInstanceStep> ProcessInstanceSteps => GetTable<ProcessInstanceStep>();
         public IQueryable<ProcessInstanceWorkitem> ProcessInstanceWorkitems => GetTable<ProcessInstanceWorkitem>();
         public IQueryable<ProcessNode> ProcessNodes => GetTable<ProcessNode>();
-        public IQueryable<Product2> Product2 => GetTable<Product2>();
-        public IQueryable<Product2Feed> Product2Feed => GetTable<Product2Feed>();
+        public IQueryable<Product2> Product2s => GetTable<Product2>();
+        public IQueryable<Product2Feed> Product2Feeds => GetTable<Product2Feed>();
         public IQueryable<Profile> Profiles => GetTable<Profile>();
         public IQueryable<QueueSobject> QueueSobjects => GetTable<QueueSobject>();
         public IQueryable<RecordType> RecordTypes => GetTable<RecordType>();
@@ -37146,12 +37152,12 @@ namespace LinqToSalesforce
         public IQueryable<Solution> Solutions => GetTable<Solution>();
         public IQueryable<SolutionFeed> SolutionFeeds => GetTable<SolutionFeed>();
         public IQueryable<SolutionHistory> SolutionHistories => GetTable<SolutionHistory>();
-        public IQueryable<SolutionStatus> SolutionStatus => GetTable<SolutionStatus>();
+        public IQueryable<SolutionStatus> SolutionStatuses => GetTable<SolutionStatus>();
         public IQueryable<StaticResource> StaticResources => GetTable<StaticResource>();
         public IQueryable<Task> Tasks => GetTable<Task>();
         public IQueryable<TaskFeed> TaskFeeds => GetTable<TaskFeed>();
         public IQueryable<TaskPriority> TaskPriorities => GetTable<TaskPriority>();
-        public IQueryable<TaskStatus> TaskStatus => GetTable<TaskStatus>();
+        public IQueryable<TaskStatus> TaskStatuses => GetTable<TaskStatus>();
         public IQueryable<User> Users => GetTable<User>();
         public IQueryable<UserFeed> UserFeeds => GetTable<UserFeed>();
         public IQueryable<UserLicense> UserLicenses => GetTable<UserLicense>();

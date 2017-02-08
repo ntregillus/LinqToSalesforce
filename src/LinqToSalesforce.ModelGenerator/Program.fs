@@ -1,5 +1,6 @@
 ﻿open Argu
 open System
+open System.Net
 open System.Net.Http
 open System.IO
 open LinqToSalesforce
@@ -41,6 +42,8 @@ let main argv =
       let instaceName = args.GetResult(<@ InstanceName @>, defaultValue="login")
       let ns = args.GetResult(<@ Namespace @>, defaultValue="LinqToSalesforce")
       let outputFile = args.GetResult(<@ OutputFile @>, defaultValue="")
+
+      ServicePointManager.SecurityProtocol <- SecurityProtocolType.Tls12 ||| SecurityProtocolType.Tls11
 
       let authparams = 
         { ClientId=clientId
