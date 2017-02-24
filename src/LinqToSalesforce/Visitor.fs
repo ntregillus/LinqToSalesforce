@@ -65,6 +65,7 @@ module Visitor =
     | Limit of int
     | Skip of int
     | Count
+    | Max of SelectArgs
   and ParsedExpression = Operation list
 
   let findDecorationName (m:MemberInfo) =
@@ -254,6 +255,16 @@ module Visitor =
     | :? MethodCallExpression as m ->
         parseFunctionCall m (node.NodeType = ExpressionType.Not)
     | _ -> failwithf "Cannot convert %A" node
+
+  let parseMaxExpression acc (e:MethodCallExpression) =
+    let args = e.Arguments |> List.ofSeq
+    match args with
+    | [_; selectExp] -> 
+        let (Select select) = parseSelectArgs selectExp
+        (Max select) :: acc
+    | _ -> 
+        (Max (SelectType e.Type)) :: acc
+
   let rec parseExpression (node:Expression) acc =
     match node with
     | :? MethodCallExpression as e when e.Method.Name = "Select" ->
@@ -313,14 +324,11 @@ module Visitor =
         parseExpression (e.Arguments.Item 0) (token :: acc)
     | :? MethodCallExpression as e when e.Method.Name = "Count" ->
         match e.Arguments.Item 0 with
-        | :? ConstantExpression as exp ->
-            parseExpression exp (Count :: acc)
-        | :? MethodCallExpression as mc2 ->
-            let subExp = mc2.Arguments.Item 1
-            let args = parseWhereArgs subExp
-            parseExpression mc2 (Count :: acc)
-        | _ ->
-            failwithf "Method not visited: '%s'" e.Method.Name
+        | :? ConstantExpression as exp -> parseExpression exp (Count :: acc)
+        | :? MethodCallExpression as mc2 -> parseExpression mc2 (Count :: acc)
+        | _ -> failwithf "Method not visited: '%s'" e.Method.Name
+    | :? MethodCallExpression as e when e.Method.Name = "Max" ->
+        parseMaxExpression acc e
     | :? MethodCallExpression as e ->
         failwithf "Method not visited: '%s'" e.Method.Name
     | _ -> acc

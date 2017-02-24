@@ -31,6 +31,8 @@ namespace LinqToSalesforce.Example1
             {
                 //var notExisting = context.Accounts.FirstOrDefault(a => a.Name == "dzdzdz");
 
+                var max1 = context.Accounts.Where(a => a.Name.Contains("Company")).Max(a => a.CreatedDate);
+
                 var count1 = context.Accounts.Count();
                 var count2 = context.Accounts.Where(a => a.Name.Contains("Company")).Count();
 

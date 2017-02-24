@@ -275,6 +275,7 @@ module Rest =
     { [<JsonProperty("id")>] Id:string
       [<JsonProperty("success")>] Success:bool
       [<JsonProperty("errors")>] Errors:string list }
+  // TODO: model for {"totalSize":1,"done":true,"records":[{"attributes":{"type":"AggregateResult"},"expr0":"2017-02-23T14:58:59.000+0000"}]}
 
   let readResponse<'ts,'te> (rs:HttpResponseMessage) =
     async {

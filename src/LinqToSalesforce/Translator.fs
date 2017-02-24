@@ -51,24 +51,24 @@ module Translator =
          | Some name -> name
          | None -> t.Name
 
-  let buildSelectFromNames (names:string array) =
-    let b = StringBuilder("SELECT ")
+  let buildSelectFromNames (prefix:string) (names:string array) =
+    let b = StringBuilder prefix
     String.Join(", ", names) |> b.Append |> ignore
     b.Append " " |> ignore
     b.ToString()
 
-  let buildSelectFromType (t:Type) =
+  let buildSelectFromType prefix (t:Type) =
     t.GetProperties()
     |> Seq.filter (fun p -> p.GetCustomAttributes<EntityFieldAttribute>().Any())
     |> Seq.map (fun p -> p.GetSerializedName())
     |> Seq.toArray
-    |> buildSelectFromNames
+    |> buildSelectFromNames prefix
 
-  let buildSelectFromFields (fields:FieldSelect list) =
+  let buildSelectFromFields prefix (fields:FieldSelect list) =
     fields
     |> Seq.map (fun f -> f.Field.GetSerializedName())
     |> Seq.toArray
-    |> buildSelectFromNames
+    |> buildSelectFromNames prefix
 
   let buildSelect(op:Operation list) =
     op
@@ -77,9 +77,9 @@ module Translator =
           | Select args ->
               match args with
               | Fields fields ->
-                  Some (buildSelectFromFields fields)
+                  Some (buildSelectFromFields "SELECT " fields)
               | SelectType t -> 
-                  Some (buildSelectFromType t)
+                  Some (buildSelectFromType "SELECT " t)
           | _ -> None
        )
     |> List.tryHead
@@ -166,18 +166,32 @@ module Translator =
         | Skip count -> Some (sprintf "OFFSET %d" count)
         | _ -> None )
   
-  let rec buildCount(op:Operation list) =
-    op |> List.choose (function | Count -> Some "SELECT COUNT() " | _ -> None ) |> List.tryHead
+//  let rec buildCount(op:Operation list) =
+//    op |> List.choose (function | Count -> Some "SELECT COUNT() " | _ -> None ) |> List.tryHead
+
+  let rec buildAggregate(op:Operation list) =
+    op
+    |> List.choose (
+         function
+         | Count -> Some "SELECT COUNT() "
+         | Max args -> 
+              match args with
+              | Fields fields ->
+                  Some ((buildSelectFromFields "SELECT MAX(" fields) + ") ")
+              | SelectType t -> 
+                  Some ((buildSelectFromType "SELECT MAX(" t) + ") ")
+         | _ -> None 
+       ) |> List.tryHead
 
   let buildSoql (op:Operation list) (t:Type) tableName =
     let b = StringBuilder()
 
-    match buildCount op with
-    | Some count -> b.Append count |> ignore
-    | None ->
-      match buildSelect op with
-      | Some s ->  b.Append s |> ignore
-      | None -> buildSelectFromType t |> b.Append |> ignore
+    match buildAggregate op with
+    | Some a -> b.Append a |> ignore
+    | _ -> //failwith "SOQL translation not implemented"
+        match buildSelect op with
+        | Some s ->  b.Append s |> ignore
+        | None -> buildSelectFromType "SELECT " t |> b.Append |> ignore
     
     b.Append (sprintf "FROM %s " tableName) |> ignore
 
