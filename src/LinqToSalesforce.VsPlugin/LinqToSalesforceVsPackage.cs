@@ -62,6 +62,8 @@ namespace LinqToSalesforce.VsPlugin
         /// </summary>
         protected override void Initialize()
         {
+            RegisterEditorFactory(new EditorFactory(this));
+
             base.Initialize();
         }
 
